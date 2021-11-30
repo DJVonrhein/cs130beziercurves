@@ -20,7 +20,30 @@
 using namespace std;
 const int WINDOW_WIDTH = 800;
 const int WINDOW_HEIGHT = 800;
+vec<double> control_points;
 
+float factorial(int n){
+    if (n == 0) 
+        return 1;
+
+    float a = static_cast<float>(n);
+    for (int i = n - 1; i > 0; --i)
+        a *= i;
+    return a;
+}
+
+float combination(int n, int k){
+    return factorial(n) / ( factorial(k) * factorial(n - k) );
+}
+
+float polynomial(int n, int k, float t){
+    return combination(n, k) * pow(t, k) * pow(1 - t, n - k);
+}
+
+void coefficients(float* c, int n, float t){
+    for (int i = 0; i < n; ++i)
+        c[i] = polynomial(n, i, t);
+}
 
 void GL_render()
 {
@@ -54,6 +77,9 @@ void GL_mouse(int button,int state,int x,int y)
         double px,py,dummy_z; // we don't care about the z-value but need something to pass in
         gluUnProject(x,y,0,mv_mat,proj_mat,vp_mat,&px,&py,&dummy_z);
         // TODO: the mouse click coordinates are (px,py).
+        control_points.push_back(px);
+        control_points.push_back(py);
+
         glutPostRedisplay();
     }
 }
