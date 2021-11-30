@@ -21,12 +21,12 @@ using namespace std;
 const int WINDOW_WIDTH = 800;
 const int WINDOW_HEIGHT = 800;
 
-struct vec2{
+struct Point{
     double x;
     double y;
 };
 
-vector<vec2> control_points;
+vector<Point> control_points;
 
 
 
@@ -84,11 +84,11 @@ void GL_mouse(int button,int state,int x,int y)
         double px,py,dummy_z; // we don't care about the z-value but need something to pass in
         gluUnProject(x,y,0,mv_mat,proj_mat,vp_mat,&px,&py,&dummy_z);
         // TODO: the mouse click coordinates are (px,py).
-        vec2 newPoint;
+        Point newPoint;
         newPoint.x = px;
         newPoint.y = py;
         control_points.push_back(newPoint);
-        
+
         glutPostRedisplay();
     }
 }
