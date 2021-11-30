@@ -20,7 +20,7 @@
 using namespace std;
 const int WINDOW_WIDTH = 800;
 const int WINDOW_HEIGHT = 800;
-vec<double> control_points;
+vector<double> control_points;
 
 float factorial(int n){
     if (n == 0) 
