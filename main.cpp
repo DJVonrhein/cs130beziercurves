@@ -54,7 +54,7 @@ void GL_render()
     glColor3f(1.0f,0.0f,0.0f);
 
     // TODO: just for example, you will need to change this.
-    for (unsigned i = 0; i < control_points.size() - 1; i + 2){
+    for (unsigned i = 0; i < control_points.size() - 1; i += 2){
         glVertex2f(control_points.at(i),control_points.at(i+1));
     }
 
