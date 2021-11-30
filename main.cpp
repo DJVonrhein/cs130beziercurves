@@ -62,12 +62,10 @@ void GL_render()
     glColor3f(1.0f,0.0f,0.0f);
 
     // TODO: just for example, you will need to change this.
-    for (unsigned i = 0; i < control_points.size(); i ++){
         // glVertex2f(control_points.at(i).x,control_points.at(i).y);
-
-        for (float t = 0; t <= 1; t += 0.01){
+    for (float t = 0; t <= 1; t += 0.01){
             Point p;
-
+            for (int i = 0; i < control_points.size(); ++i){
             p.x = control_points.at(i).x * polynomial(control_points.size(),i,t);
             p.y = control_points.at(i).y * polynomial(control_points.size(),i,t);
 
