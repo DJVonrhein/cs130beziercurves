@@ -65,9 +65,9 @@ void GL_render()
         // glVertex2f(control_points.at(i).x,control_points.at(i).y);
     for (float t = 0; t <= 1; t += 0.01){
             Point p;
-            for (int i = 0; i < control_points.size(); ++i){
-            p.x = control_points.at(i).x * polynomial(control_points.size(),i,t);
-            p.y = control_points.at(i).y * polynomial(control_points.size(),i,t);
+            for (unsigned i = 0; i < control_points.size(); ++i){
+                p.x = control_points.at(i).x * polynomial(control_points.size(),i,t);
+                p.y = control_points.at(i).y * polynomial(control_points.size(),i,t);
 
             }
             glVertex2f(p.x, p.y);
