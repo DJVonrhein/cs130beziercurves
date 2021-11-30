@@ -78,8 +78,8 @@ void GL_render()
             p.x = 0.0;
             p.y = 0.0;
             for (unsigned i = 0; i < control_points.size(); ++i){
-                p.x += control_points.at(i).x * polynomial(control_points.size(),i,t);
-                p.y += control_points.at(i).y * polynomial(control_points.size(),i,t);
+                p.x += control_points.at(i).x * polynomial(control_points.size() - 1,i,t);
+                p.y += control_points.at(i).y * polynomial(control_points.size() - 1,i,t);
 
             }
             glVertex2f(p.x, p.y);
