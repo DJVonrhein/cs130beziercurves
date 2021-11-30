@@ -20,7 +20,15 @@
 using namespace std;
 const int WINDOW_WIDTH = 800;
 const int WINDOW_HEIGHT = 800;
-vector<double> control_points;
+
+struct vec2{
+    double x;
+    double y;
+};
+
+vector<vec2> control_points;
+
+
 
 float factorial(int n){
     if (n == 0) 
@@ -76,9 +84,11 @@ void GL_mouse(int button,int state,int x,int y)
         double px,py,dummy_z; // we don't care about the z-value but need something to pass in
         gluUnProject(x,y,0,mv_mat,proj_mat,vp_mat,&px,&py,&dummy_z);
         // TODO: the mouse click coordinates are (px,py).
-        control_points.push_back(px);
-        control_points.push_back(py);
-
+        vec2 newPoint;
+        newPoint.x = px;
+        newPoint.y = py;
+        control_points.push_back(newPoint);
+        
         glutPostRedisplay();
     }
 }
