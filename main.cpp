@@ -58,7 +58,7 @@ void GL_render()
     glClear(GL_COLOR_BUFFER_BIT);
     glutSwapBuffers();
 
-    glBegin(GL_LINES);
+    glBegin(GL_LINE_STRIP);
     glColor3f(1.0f,0.0f,0.0f);
 
     // TODO: just for example, you will need to change this.
