@@ -22,8 +22,8 @@ const int WINDOW_WIDTH = 800;
 const int WINDOW_HEIGHT = 800;
 
 struct Point{
-    double x;
-    double y;
+    float x;
+    float y;
 };
 
 vector<Point> control_points;
